@@ -71,8 +71,8 @@ int main(int argc, char *argv[]){
 
     while(comando != 't'){
         if(numPost == CAPACIDAD) {
-            perror("\nHas alcanzado la camacidad maxima del timeline");
-            return EXIT_FAILURE;
+            perror("\nHas alcanzado la capacidad maxima del timeline");
+            return EXIT_SUCCESS;
         }
 
         leerDatos(timeline,numPost);
