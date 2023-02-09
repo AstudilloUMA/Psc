@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <errno.h>
 
-static int CAPACIDAD = 10;
+static int CAPACIDAD = 1;
 
 struct Fecha{
     int dia;
@@ -60,7 +60,7 @@ void mostrarTimeline(struct SPost timeline[], int numPost){
 
 int main(int argc, char *argv[]){
 
-    int exit = 0;
+    int exit = 1;
     struct SPost timeline[CAPACIDAD];
 
     char comando;
@@ -71,7 +71,9 @@ int main(int argc, char *argv[]){
 
     while(comando != 't'){
         if(numPost == CAPACIDAD) {
-            perror("\nHas alcanzado la capacidad maxima del timeline");
+            exit = 0; 
+            perror("\nEl timeline esta lleno");
+            mostrarTimeline(timeline,numPost);
             return EXIT_SUCCESS;
         }
 
@@ -82,7 +84,7 @@ int main(int argc, char *argv[]){
         scanf(" %c", &comando);   
     }
 
-    mostrarTimeline(timeline,numPost);
+    if(exit == 1) mostrarTimeline(timeline,numPost);
 
     return EXIT_SUCCESS;
 }
