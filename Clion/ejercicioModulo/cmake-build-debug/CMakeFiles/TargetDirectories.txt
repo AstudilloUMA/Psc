@@ -1,0 +1,3 @@
+C:/Users/pablo/Desktop/Repositorios/Psc/Clion/ejercicioModulo/cmake-build-debug/CMakeFiles/ejercicioModulo.dir
+C:/Users/pablo/Desktop/Repositorios/Psc/Clion/ejercicioModulo/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/pablo/Desktop/Repositorios/Psc/Clion/ejercicioModulo/cmake-build-debug/CMakeFiles/rebuild_cache.dir

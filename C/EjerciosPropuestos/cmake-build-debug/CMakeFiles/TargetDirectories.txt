@@ -1,0 +1,2 @@
+C:/Users/pablo/Desktop/Repositorios/Psc/C/EjerciosPropuestos/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/pablo/Desktop/Repositorios/Psc/C/EjerciosPropuestos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
