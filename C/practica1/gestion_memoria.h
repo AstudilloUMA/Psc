@@ -11,6 +11,14 @@
 #include <stdlib.h>
 #include <errno.h>
 
+typedef struct T_Nodo* T_Manejador;
+
+struct T_Nodo {
+	unsigned inicio;
+	unsigned fin;
+	T_Manejador sig;
+};
+
 void crear(T_Manejador* manejador){
    
     *manejador = (T_Manejador) malloc (sizeof(struct T_Nodo));
@@ -99,4 +107,4 @@ void devolver(T_Manejador *manejador,unsigned tam,unsigned dir){
     }
     compactar(*manejador);
 }
-
+#endif
