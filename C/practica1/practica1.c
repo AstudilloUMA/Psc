@@ -12,7 +12,7 @@ gcc <nombrefic_main>.c <nombrefic_mod>.c o <nombre>.exegcc
 #include <stdio.h>
 #include <stdlib.h>
 #include "gestion_memoria.h"
-#include "gestion_memoria.c"
+
 
 int main(void) {
 
