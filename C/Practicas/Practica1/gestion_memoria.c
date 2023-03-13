@@ -32,20 +32,32 @@ const unsigned MAX = 950;
 Si la operaci�n se pudo llevar a cabo, es decir, existe un trozo con capacidad suficiente, devolvera TRUE (1) en �ok�; FALSE (0) en otro caso.
  */
 	void obtener(T_Manejador *manejador, unsigned tam, unsigned* dir, unsigned* ok){
-        T_Manejador* aux = (*manejador)->sig;
-        *ok = 0;
-        while (*manejador != NULL && ok == 0)
+        T_Manejador actual = *manejador;
+        T_Manejador anterior = NULL;
+
+        while (actual != NULL && (actual->fin - actual->inicio+1 <tam))
         {
-            if(((*aux)->inicio-(*manejador)->fin) >= tam)
-            {
-                *dir = (*manejador)->fin+1;
-                *ok = 1;
-            }else
-            {
-                manejador = aux;
-                aux = (*aux)->sig;
-            }
+            anterior = actual;
+            actual = actual->sig;
         }
+
+        if(actual == NULL) *ok = 0;
+        else
+        {
+            *ok = 1;
+            *dir = actual->inicio;
+            if (actual->fin - actual->inicio+1 == tam)
+            {
+                if (anterior == NULL) *manejador = actual->sig;
+                else  anterior->sig = actual->sig;
+                free(actual);
+            } else
+            {
+                actual->inicio += tam;
+            }
+            
+        }
+
     }
 
 /* Muestra el estado actual de la memoria, bloques de memoria libre */
@@ -60,14 +72,47 @@ Si la operaci�n se pudo llevar a cabo, es decir, existe un trozo con capacidad
         }    
     } 
 
+    void compactar (T_Manejador *manejador){
+        T_Manejador actual = *manejador;
+
+        while (actual != NULL && actual->sig != NULL)
+        {
+             if (actual->fin+1 == actual->sig->inicio)
+             {
+                actual->fin = actual->sig->fin;
+                T_Manejador borrar = actual->sig;
+                actual->sig = borrar->sig;
+                free(borrar);
+             } else actual = actual->sig;   
+        }
+    }
+
 /* Devuelve el trozo de memoria continua de tama�o �tam� y que
  * comienza en �dir�.
  * Se puede suponer que se trata de un trozo obtenido previamente.
  */
 	void devolver(T_Manejador *manejador,unsigned tam,unsigned dir){
-        int encontrado = 1;
-        while(manejador != NULL && !encontrado){
-           if((*manejador)->inicio == dir && ((*manejador)->fin-(*manejador)->inicio) == tam)encontrado = 0; 
-           else manejador = (*manejador)->sig;  
+        T_Manejador actual = *manejador;
+        T_Manejador anterior = NULL;
+
+        while (actual != NULL && (actual->inicio < dir))
+        {
+            anterior = actual;
+            actual = actual-> sig;
+        }
+
+        T_Manejador nuevoNodo = (T_Manejador)malloc(sizeof(struct T_Nodo));
+
+        if(nuevoNodo == NULL) perror("Error al devolver");
+        else
+        {
+            nuevoNodo->inicio = dir;
+            nuevoNodo->fin = dir + tam-1;
+            nuevoNodo->sig = actual;
+
+            if(anterior == NULL) *manejador = nuevoNodo;
+            else anterior->sig = nuevoNodo;
+
+            compactar(manejador);
         }
     }
