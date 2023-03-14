@@ -12,7 +12,7 @@ void Crear(LSistema *l)
 //Inserta un proceso por orden de llegada.
 void InsertarProceso ( LSistema *ls, int numproc)
 {
-    if(ls == NULL)
+    if(*ls == NULL)
     {
         LSistema nuevoNodo = (LSistema)malloc(sizeof(struct Nodo));
         if(nuevoNodo == NULL) perror("InsertarProceso: Error al reservar memoria");
@@ -68,7 +68,7 @@ void InsertarHebra (LSistema *ls, int numproc, char *idhebra, int priohebra)
     else
     {
         LHebras antH = NULL;
-        LHebras auxH = (*ls)->sigHebras;
+        LHebras auxH = auxP->sigHebras;
 
         while(auxH != NULL && priohebra < auxH->prio)
         {
@@ -85,9 +85,10 @@ void InsertarHebra (LSistema *ls, int numproc, char *idhebra, int priohebra)
             nuevaHebra->sig = NULL;
         }
 
-        if(auxH == NULL)
+        if(antH == NULL)
         {
-            auxH->sig = nuevaHebra;
+            nuevaHebra->sig = auxH;
+            auxP->sigHebras = nuevaHebra;
         }
         else
         {
@@ -113,7 +114,7 @@ void Mostrar (LSistema ls)
     {
         printf("Proceso: %d\n", ls->pid);
         if(ls->sigHebras != NULL) MostrarHebras(ls->sigHebras);
-        printf("------------------------------------");
+        printf("------------------------------------\n");
         ls = ls->sig;
     } 
 }
@@ -121,7 +122,7 @@ void Mostrar (LSistema ls)
 void EliminaHebras (LHebras *lh)
 {
     LHebras aux = *lh;
-    while (lh != NULL)
+    while (*lh != NULL)
     {
         aux = *lh;
         *lh = (*lh)->sig;
