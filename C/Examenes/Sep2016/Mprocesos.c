@@ -40,7 +40,7 @@ void EjecutarProcesos(LProc lroundrobin)
         {
             printf("\tProceso: %d\n", actual->pid);
             actual = actual->sig;   
-        } while (actual->sig != lroundrobin);
+        } while (actual != lroundrobin->sig);
     }
 }
 
@@ -87,22 +87,21 @@ int tamanio(LProc lista)
 void EscribirFichero (char * nomf, LProc *lista)
 {
     FILE* fichero = fopen(nomf,"wb");
+    LProc actual = *lista;
     if(fichero == NULL) perror("EscribirFichero: Error al abrir fichero");
     else
     {
-        int numPid;
         int tam = tamanio(*lista);
-        fwrite(&tam,1,sizeof(int),fichero);
+        fwrite(&tam,sizeof(int),1,fichero);
 
         for (int i = 0; i < tam; i++)
         {
-            LProc actual = *lista;
-            numPid = actual->pid;
-            fwrite(&numPid,1,sizeof(int),fichero);
-            (*lista) = actual->sig;
-            EliminarProceso(numPid,lista);
+            actual = (*lista)->sig;
+            fwrite(&(actual->pid),sizeof(int),1,fichero);
+            (*lista)->sig = actual->sig;
             free(actual);
         }
+        *lista = NULL;
         fclose(fichero);
     }
 }
