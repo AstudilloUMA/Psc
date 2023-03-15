@@ -9,7 +9,8 @@ como parametro esta vacia y 0 si no lo esta.
 */
 int Lista_Vacia(Lista lista)
 {
-    return lista == NULL;
+    if(lista == NULL) return 1;
+    else return 0;
 }
 
 /*Num_Elementos es una funcion a la que se le pasa un puntero a una lista 
@@ -99,29 +100,34 @@ el código y el texto de un componente y  anyade un nodo al final de
 la lista con estos datos.
 */
 void Lista_Agregar(Lista *lista, long codigo, char* textoFabricante)
-{
-    Lista aux = *lista;
-    Lista nuevoNodo = (Lista)malloc(sizeof(Componente));
-    if(nuevoNodo == NULL) perror("Lista_Agregar: Error al reservar memoria");
+{   
+    Componente* nodoAct = (Componente*)malloc(sizeof(struct elemLista));
+    if(nodoAct == NULL) perror("Lista_Agregar: Error al reservar memoria");
     else
     {
-        nuevoNodo->codigoComponente = codigo;
-        strcpy(nuevoNodo->textoFabricante,textoFabricante);
-        nuevoNodo->sig = NULL;
+        nodoAct->codigoComponente = codigo;
+        strcpy(nodoAct->textoFabricante,textoFabricante);
+        nodoAct->sig = NULL;
 
-        if (aux == NULL)
+        if ((*lista) == NULL)
         {
-            aux = nuevoNodo;
+            (*lista) = nodoAct;
         }
         else
         {
-            while (aux->sig != NULL)
+            nodoAct = (*lista);
+            while (nodoAct->sig != NULL)
             {
-                aux = aux->sig;
+                nodoAct = nodoAct->sig;
             }
 
-            aux->sig = nuevoNodo;     
-        }    
+            Componente* nuevoNodo = (Componente*)malloc(sizeof(struct elemLista)); 
+            nuevoNodo->codigoComponente = codigo;
+            strcpy(nuevoNodo->textoFabricante,textoFabricante);
+            nuevoNodo->sig = NULL;
+
+            nodoAct->sig = nuevoNodo;
+        }   
     }  
 }
 
@@ -134,22 +140,31 @@ void Lista_Extraer(Lista *lista)
     Lista actual = *lista;
     Lista ant = NULL;
 
-    if (actual->sig == NULL) 
+    if (actual == NULL)
     {
-        free(actual);
         *lista = NULL;
     }
     else
     {
-        while (actual->sig != NULL)
+        if (actual->sig == NULL) 
         {
-            ant = actual;
-            actual = actual->sig;
+            free(actual);
+            *lista = NULL;
         }
+        else
+        {
+            while (actual->sig != NULL)
+            {
+                ant = actual;
+                actual = actual->sig;
+            }
 
-        ant->sig = NULL;
-        free(actual);
-    }  
+            ant->sig = NULL;
+            free(actual);
+        }  
+    }
+    
+    
 }
 
 /*
@@ -158,7 +173,7 @@ y elimina todos sus Componentes.
 */
 void Lista_Vaciar(Lista *lista)
 {
-    while(lista != NULL)
+    while((*lista) != NULL)
     {
         Lista_Extraer(lista);
     }
