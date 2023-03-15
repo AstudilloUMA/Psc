@@ -18,7 +18,26 @@
  * caso contrario. Implementar este algoritmo utilizando solo
  * funciones de �Polinomio.h�
 */
-//int estaIncluido(TPolinomio p1,TPolinomio p2);
+
+int esta(TPolinomio p, unsigned int coef, unsigned int exp)
+{
+	while (p != NULL && (p->coef != coef && p->exp != exp)) 
+	{
+		p = p->sig;
+	}
+
+	return p == NULL;
+}
+
+int estaIncluido(TPolinomio p1,TPolinomio p2)
+{
+	while (p1 != NULL && esta(p2,p1->coef,p1->exp))
+	{
+		p1 = p1->sig;
+	}
+	
+	return p1 == NULL;
+}
 
 int main(void) {
 	//setvbuf(stdout,NULL,_IONBF,0);
@@ -65,17 +84,16 @@ int main(void) {
 	printf("COMPRUEBA QUE SEA 9\n");
 
 	//PARTE 2
-	/*
+	
 	TPolinomio p2;
 
 	polinomioCero(&p2);
 	crearDeFichero(&p2,"monomios.txt");
 	printf("\nPolinomio 2 creado desde fichero: ");
 	imprimir(p2);
-	 */
-
+	
 	//PARTE 3
-	/*
+	
 	TPolinomio p3;
 
 	polinomioCero(&p3);
@@ -99,7 +117,7 @@ int main(void) {
 	int valor = evaluar(p2,3);
 	printf("El valor del polinomio para x = 3 es: %d\n", valor);
 	printf("COMPRUEBA QUE SEA 7152\n");
-	*/
+	
 
 	destruir(&p);
 	return 0;

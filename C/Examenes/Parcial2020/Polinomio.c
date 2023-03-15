@@ -139,3 +139,57 @@ void destruir(TPolinomio *p)
     free(anterior);
     polinomioCero(p);
 }
+
+/* Lee los datos de un polinomio de un fichero de texto, y crea la lista de
+monomios p. El formato del polinomio en el fichero contiene una secuencia
+de pares de dígitos correspondientes al coeficiente y exponente de cada
+monomio del polinomio, incluyendo los que tienen coeficiente nulo. En ambos
+casos, suponemos que los coeficientes y exponentes son dígitos del 0 al 9
+(no hay números superiores). Por ejemplo, para el polinomio de ejemplo el
+fichero de texto estaría compuesto por la secuencia de caracteres
+“0690332551370402”. Observa que los monomios pueden venir desordenados en
+el fichero de entrada. La conversión de un valor de tipo ‘char’ que
+contenga un valor númerico (ej. char c = ‘2’) a su correspondiente valor
+entero (int valor), se puede hacer de la siguiente forma: valor = c – ‘0’
+*/
+int crearDeFichero(TPolinomio *p, char *nombre)
+{
+    FILE* f = fopen(nombre,"rt");
+    if(f == NULL) perror("crearDeFichero: error al abrir fichero");
+    else
+    {
+        char coef, exp;
+        while (!feof(f))
+        {
+            fscanf(f,"%c%c", &coef, &exp);
+            unsigned int coeficiente = coef - '0';   
+            unsigned int exponente = exp -'0';
+            insertar(p,coeficiente,exponente);
+        }
+        fclose(f);
+    }
+}
+
+/* Eval�a el polinomio para el valor x y devuelve el resultado.
+ * Para la evaluaci�n del polinomio debes utilizar el m�todo de Horner,
+ * de manera que ax^4 + bx^3+ cx^2+dx+e puede evaluarse
+ * en un valor cualquiera x teniendo en cuenta que es equivalente
+ * a: (((ax+b)x+c)x+d)x+e.
+*/
+
+int hallarPotencia(int x, unsigned int exp)
+{
+    if(exp > 0) return x*(hallarPotencia(x,exp-1));
+    else return 1;
+}
+
+int evaluar(TPolinomio p,int x)
+{
+    int res = 0;
+    while (p != NULL)
+    {
+        res += (p->coef)*hallarPotencia(x,p->exp);
+        p = p->sig;
+    }
+    return res;   
+}
