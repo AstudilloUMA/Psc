@@ -13,7 +13,7 @@ monomios que no son nulos. En el ejemplo, el grado es 7.
 El grado del polinomio cero es 0.*/
 unsigned int grado(TPolinomio p)
 {
-    int mayor = 0;
+    unsigned int mayor = 0;
     if(p != NULL)
     {
         while (p != NULL)
@@ -33,7 +33,8 @@ unsigned int coeficiente(TPolinomio p, unsigned int exp)
         p = p->sig;
     }
 
-    return p->coef;
+    if(p == NULL) return 0;
+    else return p->coef;
 }
 
 /* Insertar el monomio con coeficiente coef, y exponente exp en el polinomio,
@@ -44,8 +45,6 @@ unsigned int coeficiente(TPolinomio p, unsigned int exp)
  * natural (entero no negativo).*/
 void insertar(TPolinomio *p, unsigned int coef, unsigned int exp)
 {
-    if(coef != 0)
-    {
         TPolinomio anterior = NULL;
         TPolinomio actual = *p;
         TPolinomio nuevoNodo = (TPolinomio)malloc(sizeof(struct TMonomio));
@@ -58,7 +57,7 @@ void insertar(TPolinomio *p, unsigned int coef, unsigned int exp)
             if(actual == NULL)
             {
                 nuevoNodo->sig = NULL;
-                actual = nuevoNodo;
+                *p = nuevoNodo;
             }
             else
             {
@@ -70,16 +69,32 @@ void insertar(TPolinomio *p, unsigned int coef, unsigned int exp)
 
                 if(anterior == NULL)
                 {
-                    nuevoNodo->sig = actual;
+                    if(actual->exp == exp) actual->coef = actual->coef + coef;
+                    else
+                    {
+                        if(actual->exp > exp)
+                        {
+                            nuevoNodo->sig = NULL;
+                            actual->sig = nuevoNodo;
+                        } 
+                        else
+                        {
+                           nuevoNodo->sig = actual;
+                           *p = nuevoNodo;
+                        }
+                    }                     
                 }
                 else
                 {
-                    nuevoNodo->sig = actual;
-                    anterior->sig = nuevoNodo;
+                    if(actual->exp == exp) actual->coef = actual->coef + coef;
+                    else
+                    {
+                        nuevoNodo->sig = actual;
+                        anterior->sig = nuevoNodo;
+                    }
                 }
             }
         }
-    }
 }
 
 /*Escribe por la pantalla el polinomio con un formato similar al siguiente:
@@ -93,9 +108,19 @@ void imprimir(TPolinomio p)
     while (p != NULL)
     {
         printf("(%d,%d)", p->coef, p->exp);
+        if(p->sig != NULL)
+        {
+            unsigned int i = p->exp -1;
+            unsigned int d = (p->sig)->exp;
+            while (i > d && i > 0)
+            {
+                printf("(0,%d)",i);
+                i--;
+            }
+        }
         p = p->sig;
     }
-    printf("]");
+    printf("]\n");
     fflush(stdout);
 }
 

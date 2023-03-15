@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": false,
-      "cwd": "/home/pablo/Psc/C/Examenes/Parcial2020",
-      "program": "/home/pablo/Psc/C/Examenes/Parcial2020/build/Debug/outDebug",
+      "externalConsole": true,
+      "cwd": "c:/Users/pablo/Desktop/Repositorios/Psc/C/Examenes/Parcial2020",
+      "program": "c:/Users/pablo/Desktop/Repositorios/Psc/C/Examenes/Parcial2020/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -14,9 +14,9 @@
 
 //Parte 3 - Sobresaliente
 /* Dados dos polinomios p1 y p2, devuelve 1 si todos los monomios
- * del polinomio p1 son también monomios del polinomio p2, y 0 en
+ * del polinomio p1 son tambiï¿½n monomios del polinomio p2, y 0 en
  * caso contrario. Implementar este algoritmo utilizando solo
- * funciones de “Polinomio.h”
+ * funciones de ï¿½Polinomio.hï¿½
 */
 //int estaIncluido(TPolinomio p1,TPolinomio p2);
 
