@@ -1,0 +1,7 @@
+madrid1; 3.9; 3.9;
+algeciras; 2.3; 2.3;
+barcelona; 4.5; 5.4;
+malaga; 1; 1;
+zamora; 2.1; 2.1;
+valencia; 1.1; 1.2;
+
