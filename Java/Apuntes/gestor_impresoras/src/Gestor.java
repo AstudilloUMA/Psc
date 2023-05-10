@@ -23,28 +23,29 @@ public class Gestor {
 		hayImpresora = new Semaphore(1);
 	}
 	
-	public void quieroImpresora(int id) throws InterruptedException {		
-		
-		
-		//SC  
-		
-		System.out.println("Cliente "+id+" consigue impresora. Quedan "+impresorasLibres);
-		
-		
-		
-	}
-	
-	public void sueltoImpresora(int id) throws InterruptedException {
+	public void quieroImpresora(int id) throws InterruptedException {
 		//TODO cond sinc - si impresorasLibres == 0 --> bloquear
 		hayImpresora.acquire();
 		mutex.acquire();
 
 		//SC
 		impresorasLibres--;
-		System.out.println("Cliente "+id+" suelta impresora. Quedan "+impresorasLibres);
+		System.out.println("Cliente "+id+" consigue impresora. Quedan "+impresorasLibres);
 
 		//TODO post
 		if (impresorasLibres > 0) hayImpresora.release();
+		mutex.release();
+	}
+	
+	public void sueltoImpresora(int id) throws InterruptedException {
+		mutex.acquire();
+
+		//SC
+		System.out.println("Cliente "+id+" suelta impresora. Quedan "+impresorasLibres);
+		impresorasLibres++;
+
+		//TODO post
+		if (impresorasLibres == 1) hayImpresora.release();
 		mutex.release();
 	}
 }
