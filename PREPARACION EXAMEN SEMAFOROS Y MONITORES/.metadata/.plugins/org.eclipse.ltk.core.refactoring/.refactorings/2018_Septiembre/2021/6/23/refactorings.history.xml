@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;semaforoslocks&apos; to &apos;locks&apos;&#x0D;&#x0A;- Original project: &apos;2018_Septiembre&apos;&#x0D;&#x0A;- Original element: &apos;2018_Septiembre/src/semaforoslocks&apos;&#x0D;&#x0A;- Renamed element: &apos;2018_Septiembre/src/locks&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;semaforoslocks&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;semaforoslocks" name="locks" qualified="false" references="true" stamp="1623530792291" textual="false" version="1.0"/>
+</session>

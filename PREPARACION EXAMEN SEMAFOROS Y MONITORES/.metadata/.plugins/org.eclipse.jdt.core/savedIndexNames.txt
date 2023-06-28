@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+C:\Users\almud\Desktop\concurrencia\examenes\PREPARACION EXAMEN SEMAFOROS Y MONITORES\.metadata\.plugins\org.eclipse.jdt.core
+3883950653.index
+828916314.index
+3629748548.index
+2865565237.index
+3887481998.index
+1140645163.index
+301872231.index

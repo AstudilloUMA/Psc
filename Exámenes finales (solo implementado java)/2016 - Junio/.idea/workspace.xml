@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4ecd7004-5351-4232-a7b4-73edbfabdd5b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1cRq8Mx5vCFI7e9oFf7EY6nWYOE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/SemaforosJusto" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Universidad\2ºAño\2º Cuatrimestre\Programación de Sistemas y Concurrencia\Exámenes finales (solo implementado java)\2016 - Junio\src\SemaforosNoJusto" />
+      <recent name="D:\Universidad\2ºAño\2º Cuatrimestre\Programación de Sistemas y Concurrencia\Exámenes finales (solo implementado java)\2016 - Junio\src\Semaforos" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Locks" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Universidad\2ºAño\2º Cuatrimestre\Programación de Sistemas y Concurrencia\Exámenes finales (solo implementado java)\2016 - Junio\src\SemaforosJusto" />
+      <recent name="D:\Universidad\2ºAño\2º Cuatrimestre\Programación de Sistemas y Concurrencia\Exámenes finales (solo implementado java)\2016 - Junio\src\Locks" />
+      <recent name="D:\Universidad\2ºAño\2º Cuatrimestre\Programación de Sistemas y Concurrencia\Exámenes finales (solo implementado java)\2016 - Junio\src\Monitores" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.SemaforosJusto">
+    <configuration name="Locks" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Locks.Principal" />
+      <module name="2016 - Junio" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Monitores" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Monitores.Principal" />
+      <module name="2016 - Junio" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SemaforosJusto" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="SemaforosJusto.Principal" />
+      <module name="2016 - Junio" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SemaforosNoJusto" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="SemaforosNoJusto.Principal" />
+      <module name="2016 - Junio" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Locks" />
+      <item itemvalue="Application.Monitores" />
+      <item itemvalue="Application.SemaforosJusto" />
+      <item itemvalue="Application.SemaforosNoJusto" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ecd7004-5351-4232-a7b4-73edbfabdd5b" name="Default Changelist" comment="" />
+      <created>1590501592349</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590501592349</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590510350888">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/0.-1080.1920.1080@0.0.1920.1080" timestamp="1590510350888" />
+    <state x="689" y="325" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590510350054">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="689" y="325" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1080/0.-1080.1920.1080@0.0.1920.1080" timestamp="1590510350054" />
+    <state x="740" y="296" key="FileChooserDialogImpl" timestamp="1590501601489">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="740" y="296" key="FileChooserDialogImpl/0.0.1920.1080/0.-1080.1920.1080@0.0.1920.1080" timestamp="1590501601489" />
+    <state width="1877" height="229" key="GridCell.Tab.0.bottom" timestamp="1590588364440">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="229" key="GridCell.Tab.0.bottom/0.0.1920.1080/0.-1080.1920.1080@0.0.1920.1080" timestamp="1590588364440" />
+    <state width="1877" height="229" key="GridCell.Tab.0.center" timestamp="1590588364440">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="229" key="GridCell.Tab.0.center/0.0.1920.1080/0.-1080.1920.1080@0.0.1920.1080" timestamp="1590588364440" />
+    <state width="1877" height="229" key="GridCell.Tab.0.left" timestamp="1590588364440">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="229" key="GridCell.Tab.0.left/0.0.1920.1080/0.-1080.1920.1080@0.0.1920.1080" timestamp="1590588364440" />
+    <state width="1877" height="229" key="GridCell.Tab.0.right" timestamp="1590588364440">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="229" key="GridCell.Tab.0.right/0.0.1920.1080/0.-1080.1920.1080@0.0.1920.1080" timestamp="1590588364440" />
+    <state x="636" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1590593972608">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="636" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/0.-1080.1920.1080@0.0.1920.1080" timestamp="1590593972608" />
+  </component>
+</project>

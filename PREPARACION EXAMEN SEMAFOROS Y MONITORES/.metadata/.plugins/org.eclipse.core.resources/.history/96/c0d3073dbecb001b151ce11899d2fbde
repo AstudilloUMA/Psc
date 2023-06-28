@@ -1,0 +1,23 @@
+package esqueleto;
+
+import java.util.concurrent.Semaphore;
+
+public class Concurso {
+	private Semaphore mutex = new Semaphore(1);
+	
+	private int[] gana = new int[2];
+	private int[] tiradas = new int[2];
+	private int[] caras = new int[2];
+	
+
+	
+	public void tirarMoneda(int id,boolean cara) throws InterruptedException {
+		mutex.aq
+		
+	}	
+	
+	public boolean concursoTerminado() {
+		
+		return false; //borrar
+	}
+}
